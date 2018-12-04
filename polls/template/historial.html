@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>carro | {% block head_title %} Inicio {% endblock %}</title>
+    <title>Historial | {% block head_title %} Inicio {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
    
@@ -22,47 +22,24 @@
    <body class="body">
     <div class="container-fluid">
       
-        <h3>Carro</h3><br><br>
+        <h3>Historial de busqueda</h3><br><br>
       <div>
 
         <table class="table table-striped">
           <thead>
             <tr>
               
-              <th>Codigo de barras</th>
               <th>Nombre Producto</th>
-              <th>Tienda</th>
-              <th>Cantidad</th>
-              <th>Precio</th>
             </tr>
           </thead>
           <tbody>
             {% for elem in user %}
             <tr>
               
-              <td>{{ elem.Codigo_barras.Codigo_barras }}</td>
-              <td>{{ elem.Codigo_barras.Nombre }}</td>
-              <td>{{ elem.Codigo_barras.Tienda }}</td>
-              <td>{{ elem.Cantidad }}</td>
-              <td>{{ elem.Codigo_barras.Precio }}</td>
-              
+              <td>{{ elem.Nombre }}</td>       
             </tr>
              {% endfor %}
-            <tr>
-              <td></td>
-             <td></td>
-             <td></td>
-             <td>Total</td>
-             <td>{{ total }}</td>
-            </tr>
-            <tr>
-              <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td><a href="{% url 'HacerNuevaLista' %}"><button class="btn btn-success my-2 my-sm-0">Hacer otra lista</button></a></td>
-            </tr>
-          </tbody>
+            </tbody>
 
         </table>
       </div>

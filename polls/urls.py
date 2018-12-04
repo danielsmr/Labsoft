@@ -11,5 +11,9 @@ urlpatterns = [
     path('adios', views.Sign_out, name="Adios"),
     path('consulta', views.Consulta, name="Consulta"),
     path('carro', views.Carrito, name="Carro"),
+    path('historial', views.Historiales, name="Historial"),
     path('anadir/<Codigo_barras>',views.Anadir_lista,name="Anadir"),
+    path('hacernuevalista', views.hacer_lista_nueva,name="HacerNuevaLista"),
+    path('olvidar_cuenta/', views.Olvidar_Cuenta, name='olvidar_cuenta'),
+    path('listar_user', views.listar_user, name="Listar_user")
 ]

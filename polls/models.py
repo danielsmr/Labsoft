@@ -46,3 +46,12 @@ class Carro(models.Model):
 	class Meta:
 		verbose_name= u'Carro'
 		verbose_name_plural=u'Carros'
+
+class Busqueda(models.Model):
+	idbusqueda = models.AutoField(primary_key=True,unique=True)
+	Nombre=models.CharField(max_length=50)
+	username=models.ForeignKey(User, on_delete=models.CASCADE)
+
+	class Meta:
+		verbose_name= u'busqueda'
+		verbose_name_plural=u'busquedas'

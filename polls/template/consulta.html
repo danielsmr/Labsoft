@@ -54,7 +54,43 @@
           </tbody>
 
         </table>
+        
       </div>
+      <div>
+        <h3> Tambien te podrian interesar</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              
+              <th>Codigo de barras</th>
+              <th>Nombre Producto</th>
+              <th>Tienda</th>
+              <th>Precio</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+           {% if suge is not None %} 
+            {% for elem in suge %}
+            <tr>
+              
+              <td>{{ elem.Codigo_barras }}</td>
+              <td>{{ elem.Nombre }}</td>
+              <td>{{ elem.Tienda }}</td>
+              <td>{{ elem.Precio }}</td>
+              <td><a href="{% url 'Anadir' elem.Codigo_barras %}"><button class="btn btn-success my-2 my-sm-0">ir</button></a></td>
+              
+            </tr>
+             {% endfor %}
+            {% endif %}
+          </tbody>
+
+        </table>
+      </div>
+      {% if not msg == '' %}
+        <a href="{% url 'Agregar_producto' %}"><button class="btn btn-success my-2 my-sm-0">Agregar producto</button>
+      {% endif %}
+
     </div>
 
     </body>

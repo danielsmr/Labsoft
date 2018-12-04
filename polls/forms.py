@@ -31,3 +31,6 @@ class Cantidad_consulta(forms.ModelForm):
 	class Meta:
 		model=Carro
 		fields=['Cantidad']
+
+class Olvidar_Form(forms.Form):
+	email = forms.EmailField(max_length=50)
