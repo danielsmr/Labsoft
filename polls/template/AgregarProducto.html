@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 justify-content-center ">
+                <h4>Por favor llenar todos los campos !</h4>
+            </div>
+        </div>
+        <form id="register_form"  method="POST" class="form-horizontal row">{% csrf_token %}
+                    <div class="col-xs-12 col-sm-8 ml-0 pl-0">
+                    
+                        <div class="form-group">
+                            <label class="control-label col-xs-5 col-sm-2" for="NombreProd">Nombre:</label>
+                                <div class=" col-xs-7 col-sm-5">
+                                    <input type="text" class="form-control ml-0 mr-0 pr-0" id="Nombre" placeholder="Ingrese Nombre del Producto" name="Nombre" required>
+                                </div>
+                        </div>
+                        
+                        <div class="form-group">
+                                <label class="control-label col-xs-5 col-sm-2" for="CodigoProd">Codigo de Barras:</label>
+                                    <div class=" col-xs-7 col-sm-5">
+                                        <input type="number" class="form-control ml-0 mr-0 pr-0" id="Codigo_barras" placeholder="Ingrese codigo de barras del Producto" name="Codigo_barras" required>
+                                    </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label class="control-label col-xs-5 col-sm-2" for="Tienda">Tienda:</label>
+                                    <div class="col-xs-7 col-sm-4">
+                                            <div class="form-group">
+                                                    <select class="custom-select" name="Tienda" id="Tienda" required>
+                                                        <option selected="">Selecciona una tienda</option>
+                                                        <option value="Price Smart">Price Smart</option>
+                                                        <option value="Exito">Exito</option>
+                                                        <option value="Alkosto">Alkosto</option>
+                                                    </select>
+                                            </div>
+                                    </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label class="control-label col-xs-5 col-sm-2" for="PrecioProd">Precio:</label>
+                                    <div class=" col-xs-7 col-sm-5">
+                                        <input type="number" class="form-control ml-0 mr-0 pr-0" id="Precio" placeholder="Ingrese el Precio del Producto" name="Precio" required>
+                                    </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="form-group">
+                                    <br><label for="comment">Descripción</label>
+                                    <textarea class="form-control" rows="4" id="Descripcion" name="Descripcion" type="text" required></textarea>
+                                </div>
+                            </div>  
+                        </div> 
+                        <div class="row">
+                        {% if not msg == '' %}
+                            <h3 class='text-success'>{{ msg }}</h3>
+                        {% endif %}
+                        </div>
+       
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-6 ">
+                                <button type="submit" class="btn btn-outline-success">Registrar</button>
+                            </div>
+
+                            <div class="col-xs-3 col-sm-6 pl-5 float-right">
+                                <button type="submit" class="btn btn-outline-secondary">Regresar</button>
+                            </div>
+                        </div>
+                </div>
+        </form> 
+        {{ register_form.errors }}
+ </div>
+           
+ 
+
+
+
+<!--*********************Finaliza el contenido***********************************************************-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>    
+</body>
+</html>

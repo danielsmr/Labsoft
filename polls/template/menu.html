@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Loggin CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+    <title>Super!</title>
+
+  </head>
+  <body>
+
+
+    <a href="{% url 'Configurar_Cuenta' %}"><button class="btn btn-success my-2 my-sm-0">Configuracion de las cuentas</button></a>
+    <a href="{% url 'Agregar_producto' %}"><button class="btn btn-success my-2 my-sm-0">Agregar producto</button></a>
+    <a href="{% url 'Carro' %}"><button class="btn btn-success my-2 my-sm-0">Carro</button></a>
+  <!--*********************Finaliza el contenido***********************************************************-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Loggin CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+    <title>Super!</title>
+
+  </head>
+  <body>
+<!--*********************Inicia el contenido***********************************************************-->
+
+    <div>
+        <div class="container mt-200">
+            <div class="row">
+                <div class="col justify-content-center">
+                        <div class="jumbotron text-md-center pt-4 pb-4" id="boxlogin">
+                            <h1 class="display-3 text-lg-center">¡Bienvenido!</h1>
+                            <p class="lead">Para acceder a los servicios de nuestra aplicación debes estar registrado.</p>
+                            <hr class="my-2">
+                            <p>¿Aun no tienes una cuenta? <a href="{% url 'Registro' %}">Registrate aquí</a> , si ya tienes una cuenta registrada ingresa con tu respectivo nombre de usuario y contraseña.</p>
+                            <form method="POST" name="flogin" id="flogin" >{% csrf_token %}
+                              <label class="float-left"><b>Nombre de usuario :</b></label>
+                              <input type="text" name="username" placeholder="Ingrese el nombre de usuario" id="username" class="form-control"><br>
+                              <label class="float-left"><b>Contraseña :</b></label>
+                              <input type="password" name="password" placeholder="Ingrese la contraseña" id="password" class="form-control">
+                              {% if msg %}
+                              {{ msg }} <br>
+                              {% endif %}
+                              <div class="row justify-content-center">
+                                <input type="submit" class="btn btn-success pl-4 pr-4 pt-2 pb-2 " value="Ingresar"><br>
+                              </div>
+                            </form>
+                    </div>         
+                </div>
+            </div>  
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--*********************Finaliza el contenido***********************************************************-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+  </body>
+</html>

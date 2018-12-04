@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="ES">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>carro | {% block head_title %} Inicio {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+      
+
+    <!-- Custom styles for this template -->
+  </head>
+
+   <body class="body">
+    <div class="container-fluid">
+      
+        <h3>Carro</h3><br><br>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              
+              <th>Codigo de barras</th>
+              <th>Nombre Producto</th>
+              <th>Tienda</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for elem in user %}
+            <tr>
+              
+              <td>{{ elem.Codigo_barras.Codigo_barras }}</td>
+              <td>{{ elem.Codigo_barras.Nombre }}</td>
+              <td>{{ elem.Codigo_barras.Tienda }}</td>
+              <td>{{ elem.Cantidad }}</td>
+              <td>{{ elem.Codigo_barras.Precio }}</td>
+              
+            </tr>
+             {% endfor %}
+            <tr>
+              <td></td>
+             <td></td>
+             <td></td>
+             <td>Total</td>
+             <td>{{ total }}</td>
+            </tr>
+            <tr>
+              <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td><button class="btn btn-success my-2 my-sm-0">Comprar</button></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    
+    </body>
+</html>

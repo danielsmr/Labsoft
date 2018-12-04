@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de Usuario</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+
+</head>
+<body>
+<!-- +++++++++++++++++++++++++++++++++++   INICIO DE CONTENIDO +++++++++++++++++++++++++++++++++++++-->    
+    <div class="container mt-4 justify-content-around">
+        <div class="row">
+                <p><strong>Por favor rellene todos los campos</strong></p><br>
+        </div>
+        
+            <form class="w-75" action="" method="POST">{% csrf_token %} 
+                        <div class="row">
+                        {% if not msg_password == '' %}
+                            <h3 class='text-success'>{{ msg_password }}</h3>
+                        {% endif %}
+                        </div>
+                        <div class="form-group row">
+                            <br><br><label class="float-left" for="InputNowPass">Ingresar contraseña actual</label>
+                
+                            <div class="col-6 float-right">
+                               
+                                 <input class="form-control" id="password_actual" name="password_actual" type="password" required>
+                            </div>
+              
+                        </div>
+                        
+                    <div class="form-group row">
+                            <br><label class="float-left" for="InputNewPass">Ingresar nueva contraseña</label>
+                    
+                            <div class="col-6 float-right">
+                                <input class="form-control" name="password_nueva" id="password_nueva" type="password" required>
+                            </div>
+                    </div>
+
+                     <div class="form-group row">
+                            <br><label class="float-left" for="ConfirmNewPass">Confirme la nueva contraseña</label>
+                       <div class="col-6 float-right">
+                                <input class="form-control" name="password_confirmar"id="password_confirmar" type="password" required onkeyup="coinciden(this.value);">
+                                 <br>
+                                  <div style="display:none" class="alert alert-danger" id="alert" role="alert">
+                                     <span id="mensaje"><!-- mensaje de verificación --></span>
+                                  </div>
+                                  <div style="display:none" class="alert alert-success" id="alert2" role="alert">
+                                     <span id="mensaje1"><!-- mensaje de verificación --></span>
+                                  </div>
+                        </div>
+                       
+                    </div>   
+                    <br>
+
+                     <div class="form-group row">
+                        <div class="col-6 justify-content-center">
+                            <a href="{% static 'conf_cuenta.html' %}" role="button" class="btn btn-outline-danger mt-5 mb-5 pt-2 pb-2 pl-4 pr-4 ">Cancelar</a>
+                        </div>
+
+                        <div class="col-6 justify-content-center">
+                            <button id="btnhabilita" disabled="true" type="submit" class="btn btn-outline-success mt-5 mb-5 pt-2 pb-2 pl-4 pr-4 ">Confirmar</button>
+                        </div>
+
+                    </div>
+            </form>
+        
+    </div>
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    function coinciden(){
+        var p1 = document.getElementById('password_nueva');
+        var p2 = document.getElementById('password_confirmar');
+        var btn_guardar = document.getElementById('btnhabilita');
+        var estado = document.getElementById('alert');
+        var estado2 = document.getElementById('alert2');
+
+          if( p1.value != p2.value){
+            document.getElementById('mensaje').innerHTML = "Las contraseñas no coinciden";
+            estado.style.display = "block";
+            estado2.style.display = "none";
+            btn_guardar.disabled = true
+          }
+          else{
+            document.getElementById('mensaje1').innerHTML = "Las contraseñas coinciden";
+            estado.style.display = "none";
+            estado2.style.display = "block";
+            btn_guardar.disabled = false
+            }
+    }
+</script>

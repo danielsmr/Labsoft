@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="ES">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Consulta | {% block head_title %} Inicio {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+      
+
+    <!-- Custom styles for this template -->
+  </head>
+
+   <body class="body">
+    <div class="container-fluid">
+      <form id="consulta_producto" class="text-center" method="GET" style="padding-bottom: 20px; padding-top: 30px;"> {% csrf_token %}
+        <h3>Ingresa el nombre del producto</h3><br><br>
+        <input class="form-control col-xs-12 col-sm-12 col-md-12" type="text" placeholder="Buscar" aria-label="Search" name="Nombre" id="Nombre" required>
+        <button class="btn btn-success my-2 my-sm-0" type="submit" value="Buscar_Producto">Buscar Producto</button>
+      </form>
+
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              
+              <th>Codigo de barras</th>
+              <th>Nombre Producto</th>
+              <th>Tienda</th>
+              <th>Precio</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for elem in objects%}
+            <tr>
+              
+              <td>{{ elem.Codigo_barras }}</td>
+              <td>{{ elem.Nombre }}</td>
+              <td>{{ elem.Tienda }}</td>
+              <td>{{ elem.Precio }}</td>
+              <td><a href="{% url 'Anadir' elem.Codigo_barras %}"><button class="btn btn-success my-2 my-sm-0">ir</button></a></td>
+              
+            </tr>
+             {% endfor %}
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    </body>
+</html>

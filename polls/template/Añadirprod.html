@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <title>Añadir producto</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <h4>{{ objects_Nombre }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 float-right">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Supermercado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="d-xs-none"><img src="{% static 'images/photo-camera.png' %}" alt="Imagen del producto" width="120" height="120"></th>
+                            <ol>
+                                <th>${{ objects_Precio }}</th>
+                                <th>{{ objects_Tienda }}<th>
+                            </ol>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+       <div class="row">
+           <div class="col-xs-12">
+                <form class="form-inline ml-3 mb-3" id="CreateForm" name="CreateForm" role="form" method="POST">{% csrf_token %}
+                    <label for="form-cantidad">Cantidad</label>
+                    <select class="form-control ml-2" id="Cantidad" name="Cantidad">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>                                        
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+
+                </form>
+           </div>   
+       </div> 
+       <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                 <div class="form-group">
+                     <label for="comment">Descripción</label>
+                     <textarea class="form-control" rows="4" id="comentario">{{ objects_des }}</textarea>
+                 </div>
+            </div>  
+        </div>      
+       <div class="row">
+           <div class="col-xs-12 col-sm-8">
+                <div class="form-group">
+                    <label for="comment">Comentarios</label>
+                    <textarea class="form-control" rows="2" id="comentario"></textarea>
+                </div>
+           </div>  
+       </div>
+       <div class="row">
+            <div class="col-xs-3 col-sm-6 float-left">
+                    <button type="submit" form="CreateForm" class="btn btn-outline-primary">Añadir a la lista</button>
+            </div>
+
+            <div class="col-xs-3 col-sm-6 pl-5 float-right">
+                    <a href= "{% url 'Consulta' %}" ><button type="submit" class="btn btn-outline-secondary">Regresar</button></a>
+            </div>
+       </div>
+    </div>
+
+
+
+
+<!--*********************Finaliza el contenido***********************************************************-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>    
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Configuracion de Cuenta</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+
+</head>
+<body>
+    <div class="container mt-1 ml-5">
+        <div class="row">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active pl-5 pr-5" href="{% url 'Configurar_Cuenta' %}">Usuario</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ml-1 pl-5 pr-5" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Perfil</a>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
+                            <a class="dropdown-item" href="{% url 'Consulta' %}">Realizar Consulta</a>
+                            <a class="dropdown-item" href="#">Historial de compras</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'Cambio_pass' %}">Cambiar contraseña</a>
+                            <a class="dropdown-item" href="{% url 'Adios' %}">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+        <div class="row">
+            <table class="table table-active table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="row">Nombre</th>
+                        <th>Correo Electronico</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ request.user }}</td>
+                        <td>{{ request.user.email }}</td>
+                    </tr>
+                </tbody>
+        </div>
+    </div>
+
+<!-- Optional JavaScript -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+
+    
+</body>
+</html>

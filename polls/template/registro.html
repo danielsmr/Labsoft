@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de Usuario</title>
+
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    
+    <!------ BDP -------->
+    <link rel="stylesheet" href="{% static 'libs/boostrap-datepicker/css/bootstrap-datepicker.css' %} ">
+</head>
+<body>
+<!-- +++++++++++++++++++++++++++++++++++   INICIO DE CONTENIDO +++++++++++++++++++++++++++++++++++++-->
+    <div class="container">    
+        <div class="row justify-content-center">
+            <form method="POST" id="register_form">{% csrf_token %}
+                <h3 class="col-sm-3">Registro</h3>
+                <div class="form-group row"><br>
+                      <label for="UserName" class="col-sm-3 control-label">Nombre De Usuario</label>
+                      <div class="col-sm-9">
+                          <input type="text" id="UserName" name="username" placeholder="Nombre De Usuario" class="form-control" autofocus required>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Correo electronico</label>
+                            <div class="col-8  col-sm-8">
+                                <label for="staticEmail">email@example.com</label>
+                                <small id="emailHelp" class="form-text text-muted">Ejemplo de una direccion de correo electronico.</small>
+                            </div>
+                    </div>
+                  <div class="form-group row">
+                      <label for="email" class="col-sm-3 control-label">Email</label>
+                      <div class="col-sm-9">
+                          <input name="email" type="email" id="email" placeholder="Email" class="form-control" required>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                            <label class="col-sm-3 control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="(DD/MM/AAAA)" type="text" required>
+                            </div>
+                    </div> 
+                  <div class="form-group row">
+                      <label for="password" class="col-sm-3 control-label">Contraseña</label>
+                      <div class="col-sm-9">
+                          <input name="password" type="password" id="password" placeholder="Contraseña" class="form-control" required>
+                      </div>
+                  </div>
+                   <div class="form-group row">
+                      <label for="repeatpassword" class="col-sm-3 control-label">Confirmar Contraseña</label>
+                      <div class="col-sm-9">
+                          <input name="password2" type="password" id="repeatpassword" placeholder="Confirmar Contraseña" class="form-control" onkeyup="coinciden(this.value);" required>
+
+                          <br>
+                          <div style="display:none" class="alert alert-danger" id="alert" role="alert">
+                             <span id="mensaje"><!-- mensaje de verificación --></span>
+                          </div>
+                          <div style="display:none" class="alert alert-success" id="alert2" role="alert">
+                             <span id="mensaje1"><!-- mensaje de verificación --></span>
+                          </div>
+                      </div>
+                  </div>                      
+                    <div align="center">
+                      <div class="form-group ">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" required>Acepto <a href="#">terminos y condiciones</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div> <!-- /.form-group -->
+                    <div class="form-group ">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button id="btnhabilita" disabled="true" type="submit" class="btn btn-success btn-block" onclick='alert("Se ha registrado correctamente") '>Registrarse</button>
+                        </div>
+                    </div>
+                  </div>  
+              </form>
+                {{ register_form.errors }}
+        </div>
+    
+    </div>   
+
+
+
+                
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++   FIN DE CONTENIDO +++++++++++++++++++++++++++++++++++++-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="{% static 'libs/boostrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>    
+    <script src="{% static 'js/idate.js' %}" ></script>
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    function coinciden(){
+        var p1 = document.getElementById('password');
+        var p2 = document.getElementById('repeatpassword');
+        var btn_guardar = document.getElementById('btnhabilita');
+        var estado = document.getElementById('alert');
+        var estado2 = document.getElementById('alert2');
+
+          if( p1.value != p2.value){
+            document.getElementById('mensaje').innerHTML = "Las contraseñas no coinciden";
+            estado.style.display = "block";
+            estado2.style.display = "none";
+            btn_guardar.disabled = true
+          }
+          else{
+            document.getElementById('mensaje1').innerHTML = "Las contraseñas coinciden";
+            estado.style.display = "none";
+            estado2.style.display = "block";
+            btn_guardar.disabled = false
+            }
+    }
+</script>
