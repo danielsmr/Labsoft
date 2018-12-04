@@ -1,4 +1,4 @@
-{% load static %}
+<!--{% load static %}-->
 <!doctype html>
 <html lang="es">
   <head>
@@ -10,17 +10,27 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
 
     <!-- Loggin CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
     
     <title>Super!</title>
 
   </head>
-  <body>
+  <body class="body">
+    <div class="container pt-5 pr-4 pl-4 ">
+       <div class="row justify-content-around " >
+          <div class="col-8 bg-light justify-content-center border">
+              <img src="{% static '/Imagenes/one.png' %}" class="img-fluid w-25 ">
+              <div class="btn-group btn-group-justified ">
+                  <a href="{% url 'Configurar_Cuenta' %}"><button class="btn btn-md btn-primary ml-4 mr-1 pr-4 pl-3 ">Configuracion de las cuentas</button></a>
+                  <a href="{% url 'Agregar_producto' %}"><button class="btn btn-md  btn-primary">Agregar producto</button></a>
+                  <a href="{% url 'Carro' %}"><button class="btn btn-md btn-primary my-2 my-sm-0 ml-2">Carro</button></a>
+              </div>
+          </div>
+       </div>
+      
+      
+    </div>
 
-
-    <a href="{% url 'Configurar_Cuenta' %}"><button class="btn btn-success my-2 my-sm-0">Configuracion de las cuentas</button></a>
-    <a href="{% url 'Agregar_producto' %}"><button class="btn btn-success my-2 my-sm-0">Agregar producto</button></a>
-    <a href="{% url 'Carro' %}"><button class="btn btn-success my-2 my-sm-0">Carro</button></a>
   <!--*********************Finaliza el contenido***********************************************************-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
